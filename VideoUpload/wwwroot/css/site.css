@@ -1,0 +1,60 @@
+.view-section {
+  min-height: 300px;
+}
+
+.video-container {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.video-row:hover {
+  background-color: #f8f9fa;
+}
+
+.video-row.table-active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Make table scrollable within catalogue view */
+#catalogueView .table-responsive {
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .video-container {
+    min-height: 250px;
+  }
+
+  #catalogueView .table-responsive {
+    max-height: 50vh;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 1400px) {
+  body {
+    overflow-x: hidden;
+  }
+}

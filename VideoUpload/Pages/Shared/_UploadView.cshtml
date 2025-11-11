@@ -1,0 +1,28 @@
+<!-- Upload Form View -->
+<div id="uploadView" class="view-section">
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Upload MP4 Files</h5>
+                </div>
+                <div class="card-body">
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="fileInput" class="form-label">Select MP4 files (max 200MB each)</label>
+                            <input type="file" class="form-control" id="fileInput" name="files" 
+                                   accept=".mp4" multiple required>
+                            <div class="form-text">You can select multiple MP4 files at once.</div>
+                        </div>
+                        <div id="uploadError" class="alert alert-danger d-none" role="alert"></div>
+                        <div id="uploadSuccess" class="alert alert-success d-none" role="alert"></div>
+                        <button type="submit" class="btn btn-primary" id="uploadBtn">
+                            <span class="spinner-border spinner-border-sm d-none" id="uploadSpinner" role="status"></span>
+                            Upload Files
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

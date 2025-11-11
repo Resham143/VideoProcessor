@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Video Upload";
+}
+
+<div class="container-fluid px-3">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-5 mb-4">Video Upload & Catalogue</h1>
+        </div>
+    </div>
+
+    <!-- Toggle Buttons -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" id="uploadViewBtn" onclick="showUploadView()">
+                    Upload 
+                </button>
+                <button type="button" class="btn btn-outline-primary" id="catalogueViewBtn" onclick="showCatalogueView()">
+                     Catalogue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Upload View Partial -->
+    @await Html.PartialAsync("_UploadView")
+
+    <!-- Include Catalogue View Partial -->
+    @await Html.PartialAsync("_CatalogueView", Model)
+</div>
+
+@section Scripts {
+    <!-- Load JavaScript files in order: utilities first, then modules -->
+    <script src="~/js/utils.js" asp-append-version="true"></script>
+    <script src="~/js/viewManager.js" asp-append-version="true"></script>
+    <script src="~/js/catalogue.js" asp-append-version="true"></script>
+    <script src="~/js/upload.js" asp-append-version="true"></script>
+}
