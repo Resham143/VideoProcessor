@@ -8,10 +8,9 @@
  * @returns {string} Formatted file size (e.g., "1.5 MB")
  */
 function formatFileSize(bytes) {
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    if (bytes === 0) return '0 B';
-    const i = Math.floor(Math.log(bytes) / Math.log(1024));
-    return Math.round(bytes / Math.pow(1024, i) * 100) / 100 + ' ' + sizes[i];
+  if (!bytes || bytes <= 0) return "0";
+  const kb = bytes / 1024;
+  return `${Math.round(kb)} `;
 }
 
 /**
@@ -20,7 +19,7 @@ function formatFileSize(bytes) {
  * @returns {string} Escaped HTML string
  */
 function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
 }

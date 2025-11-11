@@ -10,23 +10,20 @@
                 </div>
                 <div class="card-body">
                     <div id="videoContainer" class="video-container">
-                        <p class="text-muted text-center">Select a video from the catalogue to play</p>
+                        <p class="text-muted text-center">Select a video from the table to start playback</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-12">
-            <div class="card shadow-sm h-100">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">Video Catalogue</h5>
-                </div>
+            <div class="card shadow-sm h-100"> 
                 <div class="card-body p-0 d-flex flex-column" style="max-height: calc(100vh - 400px);">
                     <div class="table-responsive flex-grow-1" id="catalogueTableContainer" style="overflow-y: auto;">
                         <table class="table table-hover mb-0">
                             <thead class="table-light sticky-top">
                                 <tr>
-                                    <th>Filename</th>
-                                    <th>Size</th>
+                                    <th>Video Filename</th>
+                                    <th>File Size KB</th>
                                 </tr>
                             </thead>
                             <tbody id="catalogueTableBody">
@@ -57,14 +54,8 @@
 @functions {
     private string FormatFileSize(long bytes)
     {
-        string[] sizes = { "B", "KB", "MB", "GB" };
-        double len = bytes;
-        int order = 0;
-        while (len >= 1024 && order < sizes.Length - 1)
-        {
-            order++;
-            len = len / 1024;
-        }
-        return $"{len:0.##} {sizes[order]}";
+        if (bytes <= 0) return "0";
+        var kb = bytes / 1024.0;
+        return $"{Math.Round(kb)}";
     }
 }
